@@ -3,19 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lag & Legends Racing</title>
+<title>Cobber Racing Results</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-    --red:#ff2b2b;
-    --red-glow:#ff4d4d;
-    --bg:#050505;
-    --panel:#111111;
-    --panel-hover:#181818;
+    --red:#f2b84b;
+    --red-glow:#ffd36b;
+    --green:#2bcf7f;
+    --blue:#69a8ff;
+    --bg:#070908;
+    --panel:#101311;
+    --panel-hover:#171b18;
     --text:#ffffff;
-    --muted:#b5b5b5;
+    --muted:#a9b5ad;
+    --line:rgba(255,255,255,.1);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -27,6 +30,7 @@ body{
     background:var(--bg);
     color:white;
     overflow-x:hidden;
+    min-height:100vh;
 }
 
 /* background */
@@ -35,7 +39,7 @@ body::before{
     position:fixed;
     inset:0;
     background:
-        linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.92)),
+        linear-gradient(135deg,rgba(4,8,6,.94),rgba(8,10,9,.82) 45%,rgba(0,0,0,.96)),
         url("https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=2200&q=80");
     background-size:cover;
     background-position:center;
@@ -46,7 +50,9 @@ body::after{
     content:"";
     position:fixed;
     inset:0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,.015), transparent);
+    background:
+        linear-gradient(90deg, transparent, rgba(255,255,255,.018), transparent),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 70px);
     z-index:-1;
 }
 
@@ -56,66 +62,50 @@ body::after{
     top:0;
     z-index:999;
     backdrop-filter:blur(16px);
-    background:rgba(0,0,0,.65);
-    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(7,9,8,.82);
+    border-bottom:1px solid var(--line);
 }
 
 .nav-inner{
-    max-width:1300px;
+    max-width:1400px;
     margin:auto;
-    padding:18px 25px;
+    padding:14px 22px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:18px;
 }
 
 .brand{
     font-family:'Orbitron';
     font-weight:900;
-    letter-spacing:2px;
+    letter-spacing:1.5px;
+    line-height:1;
+}
+
+.brand span{
+    color:var(--red);
 }
 
 .nav-links{
     display:flex;
-    gap:25px;
+    gap:12px;
+    align-items:center;
 }
 
 .nav-links a{
     text-decoration:none;
     color:white;
     transition:.3s;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:8px;
+    padding:10px 14px;
+    font-weight:700;
 }
 
-.nav-links a:hover{color:var(--red);}
-
-/* HERO */
-.hero{
-    min-height:70vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px 20px;
-}
-
-.hero-content{
-    max-width:900px;
-    animation:fadeUp 1s ease;
-}
-
-.hero h1{
-    font-family:'Orbitron';
-    font-size:clamp(3rem,8vw,6rem);
-    line-height:1;
-    margin-bottom:15px;
-}
-
-.hero h1 span{color:var(--red);}
-
-.hero p{
-    color:var(--muted);
-    font-size:1.2rem;
-    margin-bottom:35px;
+.nav-links a:hover{
+    border-color:var(--red);
+    color:var(--red);
 }
 
 .button-group{
@@ -127,20 +117,20 @@ body::after{
 
 .btn{
     text-decoration:none;
-    padding:15px 30px;
-    border-radius:12px;
-    font-weight:600;
+    padding:12px 18px;
+    border-radius:8px;
+    font-weight:800;
     transition:.3s;
 }
 
 .btn-primary{
     background:var(--red);
-    color:white;
+    color:#161008;
 }
 
 .btn-primary:hover{
     transform:translateY(-3px);
-    box-shadow:0 0 25px rgba(255,43,43,.6);
+    box-shadow:0 0 25px rgba(242,184,75,.35);
 }
 
 .btn-secondary{
@@ -155,84 +145,74 @@ body::after{
 
 /* SECTIONS */
 .section{
-    max-width:1300px;
+    max-width:1400px;
     margin:auto;
-    padding:80px 20px;
+    padding:28px 20px 70px;
 }
 
 .section-title{
-    text-align:center;
+    text-align:left;
     font-family:'Orbitron';
-    font-size:2.3rem;
-    margin-bottom:50px;
-}
-
-/* FEATURED */
-.featured{
-    background:rgba(255,43,43,.08);
-    border:1px solid rgba(255,43,43,.35);
-    border-radius:22px;
-    padding:50px;
-    text-align:center;
-    box-shadow:0 0 40px rgba(255,43,43,.15);
-}
-
-.featured-label{
-    color:var(--red);
-    font-weight:700;
-    margin-bottom:10px;
-    letter-spacing:2px;
-}
-
-.featured h2{
-    font-family:'Orbitron';
-    margin-bottom:20px;
-}
-
-.featured p{
-    max-width:700px;
-    margin:auto;
-    color:var(--muted);
-    line-height:1.8;
-}
-
-/* GRID */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:30px;
-}
-
-.card{
-    background:rgba(17,17,17,.95);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:20px;
-    padding:35px;
-    transition:.35s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    border-color:var(--red);
-    box-shadow:0 0 35px rgba(255,43,43,.25);
-}
-
-.card h3{
-    font-family:'Orbitron';
-    margin-bottom:15px;
-}
-
-.card p{
-    color:var(--muted);
-    line-height:1.8;
+    font-size:clamp(2rem,5vw,4.5rem);
+    line-height:.95;
+    margin-bottom:12px;
 }
 
 /* RESULTS SECTION */
+.leaderboard-head{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:end;
+    gap:22px;
+    margin:26px 0 24px;
+}
+
+.eyebrow{
+    color:var(--green);
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.leaderboard-copy{
+    color:var(--muted);
+    max-width:720px;
+    line-height:1.7;
+}
+
+.quick-status{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(120px,1fr));
+    gap:10px;
+    min-width:280px;
+}
+
+.quick-status div{
+    background:rgba(16,19,17,.88);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:14px;
+}
+
+.quick-status b{
+    color:var(--red);
+    display:block;
+    font-family:'Orbitron';
+    font-size:20px;
+    margin-bottom:3px;
+}
+
+.quick-status span{
+    color:var(--muted);
+    font-size:13px;
+}
+
 .results{
-    background:rgba(0,0,0,.55);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:25px;
-    padding:40px;
+    background:rgba(8,10,9,.86);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px;
     box-shadow:0 0 40px rgba(0,0,0,.5);
 }
 
@@ -246,7 +226,7 @@ body::after{
 .month-tabs{
     margin-bottom:18px;
     padding-bottom:18px;
-    border-bottom:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid var(--line);
 }
 
 .month-button{
@@ -261,10 +241,10 @@ body::after{
 
 .tab-button{
     appearance:none;
-    border:1px solid rgba(255,255,255,.14);
-    background:#0e0e0e;
+    border:1px solid var(--line);
+    background:#0f1310;
     color:white;
-    border-radius:10px;
+    border-radius:8px;
     padding:11px 18px;
     font:600 14px 'Inter',sans-serif;
     cursor:pointer;
@@ -275,7 +255,8 @@ body::after{
 .tab-button.active{
     background:var(--red);
     border-color:var(--red);
-    box-shadow:0 0 20px rgba(255,43,43,.35);
+    color:#171008;
+    box-shadow:0 0 20px rgba(242,184,75,.22);
 }
 
 .month-panel,
@@ -291,7 +272,7 @@ body::after{
 
 .week-title{
     font-family:'Orbitron';
-    font-size:1.8rem;
+    font-size:clamp(1.5rem,3vw,2.4rem);
     margin-bottom:10px;
 }
 
@@ -309,10 +290,10 @@ body::after{
 }
 
 .stat{
-    background:#0e0e0e;
-    border:1px solid rgba(255,255,255,.08);
+    background:#0f1310;
+    border:1px solid var(--line);
     padding:12px;
-    border-radius:12px;
+    border-radius:8px;
     text-align:center;
 }
 
@@ -324,28 +305,38 @@ body::after{
 
 /* EVENTS */
 .event{
-    background:rgba(255,255,255,.03);
-    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--line);
     border-left:3px solid var(--red);
-    border-radius:12px;
-    padding:18px;
-    margin-bottom:15px;
+    border-radius:8px;
+    padding:0;
+    margin-bottom:12px;
+    overflow:hidden;
 }
 
 .event h3{
     font-family:'Orbitron';
     font-size:16px;
-    margin-bottom:5px;
+    padding:16px 18px 4px;
 }
 
 .event small{
     color:var(--muted);
+    display:block;
+    padding:0 18px 12px;
+    border-bottom:1px solid rgba(255,255,255,.07);
 }
 
 .result{
     font-family:monospace;
-    color:#d6e4ff;
-    margin-top:4px;
+    color:#dce7ff;
+    padding:8px 18px;
+    border-top:1px solid rgba(255,255,255,.04);
+    background:rgba(0,0,0,.12);
+}
+
+.result:nth-of-type(odd){
+    background:rgba(255,255,255,.025);
 }
 
 .empty-week{
@@ -354,30 +345,11 @@ body::after{
     padding:16px 0 4px;
 }
 
-/* DISCORD */
-.discord{
-    text-align:center;
-    padding:100px 20px;
-}
-
-.discord h2{
-    font-family:'Orbitron';
-    font-size:2.5rem;
-    margin-bottom:20px;
-}
-
-.discord p{
-    color:var(--muted);
-    max-width:700px;
-    margin:auto auto 35px;
-    line-height:1.8;
-}
-
 /* FOOTER */
 .footer{
     text-align:center;
-    padding:35px;
-    border-top:1px solid rgba(255,255,255,.08);
+    padding:24px;
+    border-top:1px solid var(--line);
     color:#888;
 }
 
@@ -389,9 +361,12 @@ body::after{
 
 /* responsive */
 @media(max-width:768px){
-    .nav-links{display:none;}
-    .featured{padding:35px 25px;}
-    .results{padding:25px;}
+    .nav-inner{align-items:flex-start;flex-direction:column;}
+    .nav-links{width:100%;}
+    .nav-links a,.btn{width:100%;text-align:center;}
+    .leaderboard-head{grid-template-columns:1fr;}
+    .quick-status{grid-template-columns:repeat(2,1fr);min-width:0;}
+    .results{padding:16px;}
     .tab-button{flex:1 1 110px;}
 }
 </style>
@@ -401,62 +376,32 @@ body::after{
 
 <nav class="navbar">
 <div class="nav-inner">
-    <div class="brand">LAG & LEGENDS</div>
+    <div class="brand">COBBER <span>RACING</span></div>
     <div class="nav-links">
-        <a href="#championship">Championship</a>
-        <a href="#servers">Servers</a>
-        <a href="#results">Results</a>
-        <a href="#join">Join Us</a>
+        <a href="https://discord.gg/GXTbZbdAcs" target="_blank">Join Discord</a>
     </div>
 </div>
 </nav>
 
-<section class="hero">
-<div class="hero-content">
-    <h1>LAG & <span>LEGENDS</span></h1>
-    <p>
-        Assetto Corsa Community<br>
-        Daily Hotlaps &bull; Open-Wheel Racing &bull; League Championships
-    </p>
-
-    <div class="button-group">
-        <a href="https://discord.gg/GXTbZbdAcs" target="_blank" class="btn btn-primary">Join Discord</a>
-        <a href="#results" class="btn btn-secondary">View Results</a>
-    </div>
-</div>
-</section>
-
-<section id="championship" class="section">
-<div class="featured">
-    <div class="featured-label">NOW RECRUITING</div>
-    <h2>TATUUS FA01 CHAMPIONSHIP</h2>
-    <p>
-        We are currently building the grid for our inaugural Tatuus FA01 Championship.
-        Whether you're new or experienced, join early and help shape the league.
-    </p>
-</div>
-</section>
-
-<section id="servers" class="section">
-<h2 class="section-title">Current Servers</h2>
-
-<div class="grid">
-    <div class="card">
-        <h3>FA01 Daily Hotlap Challenge</h3>
-        <p>A new track drops every 24 hours. Jump in, push your limits, and see how your best lap stacks up against the rest of the grid.</p>
-    </div>
-
-    <div class="card">
-        <h3>FA01 Championship (Coming Soon)</h3>
-        <p>Beginner-friendly structured league racing built for close, competitive battles. Register your interest in Discord and join the grid as we build the championship together.</p>
-    </div>
-</div>
-</section>
-
 <!-- ================= RESULTS ================= -->
 <section id="results" class="section">
 
-<h2 class="section-title">Results Archive</h2>
+<div class="leaderboard-head">
+    <div>
+        <div class="eyebrow">Daily Hotlap Archive</div>
+        <h1 class="section-title">Cobber Racing Results</h1>
+        <p class="leaderboard-copy">
+            Tatuus FA01 daily challenges, weekly leaderboards and archived practice results.
+            Pick a month and week below to scan the fastest laps from each track.
+        </p>
+    </div>
+    <div class="quick-status" aria-label="Current archive snapshot">
+        <div><b>July</b><span>Latest month</span></div>
+        <div><b>Week 2</b><span>Current board</span></div>
+        <div><b>FA01</b><span>Challenge car</span></div>
+        <div><b>Daily</b><span>Track resets</span></div>
+    </div>
+</div>
 
 <div class="results">
     <div class="result-tabs month-tabs" role="tablist" aria-label="Monthly result archive">
@@ -847,14 +792,8 @@ body::after{
 </div>
 </section>
 
-<section id="join" class="discord">
-<h2>Ready To Race?</h2>
-<p>Join our Discord and become part of the grid.</p>
-<a href="https://discord.gg/GXTbZbdAcs" target="_blank" class="btn btn-primary">Join Discord</a>
-</section>
-
 <footer class="footer">
-&copy; 2026 Lag & Legends Racing &bull; Assetto Corsa Community
+&copy; 2026 Cobber Racing &bull; Assetto Corsa Community
 </footer>
 
 <script>
