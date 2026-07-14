@@ -1,2 +1,2 @@
-# llr-racing-league
-Assetto Corsa Racing League
+Cobber Racing
+Assetto Corsa Racing Community
