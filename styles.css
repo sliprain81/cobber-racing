@@ -262,7 +262,7 @@ a { color: inherit; }
 
 .news-grid { padding: 44px 0 90px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; align-items: start; }
 .news-card { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); overflow: hidden; }
-.news-card.featured { grid-row: span 2; }
+.news-card.featured { grid-column: 1 / -1; }
 .news-stripe { height: 7px; background: linear-gradient(90deg, var(--red) 0 62%, #380100 62%); }
 .news-body { padding: 28px; }
 .news-date { color: var(--red-bright); font-size: .72rem; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
@@ -272,6 +272,14 @@ a { color: inherit; }
 .editor-note { margin-top: 18px; padding: 20px; border-left: 3px solid var(--red); background: rgba(225,6,0,.08); color: #cbc9c6; line-height: 1.65; }
 .race-report .news-body { padding: clamp(26px, 4vw, 46px); }
 .race-report .report-lede { max-width: 800px; color: #d0cfcc; font-size: 1.08rem; }
+.report-details { margin-top: 24px; border-top: 1px solid var(--line); }
+.report-details summary { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; padding: 18px 0 0; color: white; cursor: pointer; list-style: none; }
+.report-details summary::-webkit-details-marker { display: none; }
+.report-details summary span { padding: 11px 14px; background: var(--red); font-size: .72rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+.report-details summary small { color: var(--muted); font-size: .75rem; }
+.report-details summary::after { content: "+"; width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--line); color: var(--red-bright); font: 800 1.25rem/1 "Inter", sans-serif; }
+.report-details[open] summary::after { content: "−"; }
+.report-details[open] .report-expanded { animation: fadeUp .28s ease; }
 .report-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin: 30px 0 0; }
 .report-stats div { padding: 18px 14px; border: 1px solid var(--line); background: #0b0b0c; }
 .report-stats strong { display: block; color: var(--red-bright); font: 900 clamp(1.35rem, 3vw, 2rem)/1 "Orbitron", sans-serif; }
@@ -349,6 +357,8 @@ a { color: inherit; }
   .hero { min-height: auto; padding: 70px 0; }
   .challenge-grid, .home-lower, .news-grid { grid-template-columns: 1fr; }
   .report-stats { grid-template-columns: repeat(2, 1fr); }
+  .report-details summary { grid-template-columns: 1fr auto; }
+  .report-details summary small { display: none; }
   .award-grid { grid-template-columns: 1fr; }
   .winner-list div { grid-template-columns: 1fr auto; gap: 7px 12px; }
   .winner-list span { grid-column: 1 / -1; }
