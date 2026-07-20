@@ -521,7 +521,7 @@ body::after{
     <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="tatuus.html" aria-current="page">Tatuus</a>
-        <a href="v8.html">V8 Supercars</a>
+        <a href="gt3.html">GT3 Showdown</a>
         <a href="news.html">News</a>
         <a class="discord-link" href="https://discord.gg/Vh32UdyE2X" target="_blank" rel="noopener">Join Discord</a>
     </div>
@@ -533,7 +533,7 @@ body::after{
         <div class="eyebrow">Choose Your Leaderboard</div>
         <h1 class="splash-title">Cobber Racing <span>Garage</span></h1>
         <p class="splash-copy">
-            Pick a current server to open its leaderboard. Assetto Corsa Tatuus results are live now, with AMS2 V8 Supercars ready for the new championship boards.
+            Pick a current server to open its leaderboard. Race the daily Tatuus FA01 challenge or represent BMW, McLaren or Mercedes in the weekly GT3 Manufacturer Showdown.
         </p>
     </div>
 
@@ -548,13 +548,13 @@ body::after{
             </div>
         </button>
 
-        <button class="series-card" type="button" data-series-target="v8-results">
-            <strong>V8 Supercars</strong>
-            <span>AMS2 server boards for the tin-top battles.</span>
+        <button class="series-card" type="button" data-series-target="gt3-results">
+            <strong>GT3 Showdown</strong>
+            <span>Weekly Assetto Corsa manufacturer battles between BMW, McLaren and Mercedes.</span>
             <div class="series-meta">
-                <b>AMS2</b>
-                <b>V8</b>
-                <b>Coming Online</b>
+                <b>Assetto Corsa</b>
+                <b>GT3</b>
+                <b>Weekly</b>
             </div>
         </button>
     </div>
@@ -1059,41 +1059,41 @@ body::after{
 </div>
 </section>
 
-<section id="v8-results" class="section series-panel">
+<section id="gt3-results" class="section series-panel">
     <div class="leaderboard-head">
         <div>
-            <div class="eyebrow">AMS2 Server Board</div>
-            <h1 class="section-title">V8 Supercars Results</h1>
+            <div class="eyebrow">Weekly Assetto Corsa Challenge</div>
+            <h1 class="section-title">GT3 Manufacturer Showdown</h1>
             <p class="leaderboard-copy">
-                AMS2 V8 Supercars leaderboards will live here once result files are ready.
+                BMW, McLaren and Mercedes fight for the fastest clean laps and the weekly manufacturer honours.
             </p>
             <div class="panel-actions">
                 <button class="series-back" type="button">Choose Another Car</button>
                 <a href="https://discord.gg/Vh32UdyE2X" target="_blank" class="btn btn-primary">Join Discord</a>
             </div>
         </div>
-        <div class="quick-status" aria-label="V8 archive snapshot">
-            <div><b>AMS2</b><span>Server platform</span></div>
-            <div><b>V8</b><span>Current car</span></div>
-            <div><b>Fresh</b><span>Board slot</span></div>
-            <div><b>Ready</b><span>For results</span></div>
+        <div class="quick-status" aria-label="GT3 archive snapshot">
+            <div><b>AC</b><span>Server platform</span></div>
+            <div><b>3</b><span>Manufacturers</span></div>
+            <div><b>7 Days</b><span>Each circuit</span></div>
+            <div><b>Monday</b><span>Results posted</span></div>
         </div>
     </div>
 
     <div class="results">
-        <div class="week-title">V8 Supercars Leaderboard</div>
+        <div class="week-title">GT3 Manufacturer Leaderboard</div>
         <div class="week-sub">
-            Send through the AMS2 result exports and this board can use the same archive structure as the Tatuus results.
+            Weekly driver and manufacturer results will appear here after each round.
         </div>
         <div class="stats">
-            <div class="stat"><b>Series</b>V8 Supercars</div>
-            <div class="stat"><b>Platform</b>AMS2</div>
-            <div class="stat"><b>Status</b>Awaiting results</div>
-            <div class="stat"><b>Format</b>Leaderboard</div>
+            <div class="stat"><b>Series</b>GT3 Showdown</div>
+            <div class="stat"><b>Platform</b>Assetto Corsa</div>
+            <div class="stat"><b>Teams</b>BMW / McLaren / Mercedes</div>
+            <div class="stat"><b>Results</b>Every Monday</div>
         </div>
         <div class="event">
-            <h3>Next Upload | AMS2 V8 Supercars</h3>
-            <small>Leaderboard archive ready for the first batch of results.</small>
+            <h3>GT3 Manufacturer Showdown</h3>
+            <small>Choose your manufacturer when joining the server and set your fastest clean lap.</small>
             <div class="result">1. Results will appear here once uploaded.</div>
         </div>
     </div>
@@ -1132,7 +1132,7 @@ document.querySelectorAll('.series-back').forEach((button) => {
 
 if (window.location.pathname.endsWith('tatuus.html')) {
     showSeries('tatuus-results');
-} else if (['#tatuus-results', '#v8-results'].includes(window.location.hash)) {
+} else if (['#tatuus-results', '#gt3-results'].includes(window.location.hash)) {
     showSeries(window.location.hash.slice(1));
 }
 

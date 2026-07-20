@@ -6,7 +6,7 @@ Static site for the Cobber Racing Assetto Corsa community, ready for GitHub Page
 
 - `index.html` — splash page and challenge selection
 - `tatuus.html` — Daily Tatuus FA01 Challenge archive
-- `v8.html` — Weekly V8 Supercar Challenge archive
+- `gt3.html` — Weekly GT3 Manufacturer Showdown archive
 - `news.html` — race reports and community updates
 
 ## Adding a news summary
