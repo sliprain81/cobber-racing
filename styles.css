@@ -305,6 +305,7 @@ a { color: inherit; }
 .report-finish strong { margin-bottom: 5px; font: 900 .82rem/1 "Orbitron", sans-serif; text-transform: uppercase; }
 .report-finish span { color: var(--muted); font-size: .82rem; }
 .report-button { flex: 0 0 auto; padding: 12px 15px; background: var(--red); color: white; text-decoration: none; font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.report-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
 
 .leaderboard-wrap { padding: 44px 0 90px; }
 .leaderboard-page body::before { opacity: .1; }
@@ -364,6 +365,7 @@ a { color: inherit; }
   .winner-list div { grid-template-columns: 1fr auto; gap: 7px 12px; }
   .winner-list span { grid-column: 1 / -1; }
   .report-finish { align-items: flex-start; flex-direction: column; }
+  .report-actions { width: 100%; justify-content: flex-start; }
   .challenge-card { min-height: 330px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .leaderboard-page .leaderboard-head { grid-template-columns: 1fr; }
